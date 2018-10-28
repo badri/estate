@@ -64,7 +64,7 @@ TEMPLATES = [
 ]
 
 DATABASES = {
-    'default': dj_database_url.config(default='sqlite:///%s/database.sqlite' % PROJECT_ROOT)
+    'default': dj_database_url.config(default=os.environ.get("DATABASE_URL"))
 }
 
 TERRAFORM_ELASTICACHE_URL = os.environ.get("TERRAFORM_ELASTICACHE_URL")
