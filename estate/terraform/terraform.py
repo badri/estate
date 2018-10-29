@@ -97,7 +97,7 @@ class Terraform(HotDockerExecutor):
     def finish(self):
         if self.action == "plan" and self.exit_code == 2:
             path = os.path.join(self.workdir, "plan.tar.gz")
-            exit_code, op = self.execute_command(["tar", "-czvf", path,  "-C", self.workdir, "./plan"], self.workdir)
+            exit_code, op = self.execute_command(["tar", "-czvf", path,  "-C", self.workdir, "./plan", ".terraform"], self.workdir)
             # if exit_code != 0:
             #     raise Exception("Unable to save plan file!: " + op)
             with open(path, "rb") as f:
